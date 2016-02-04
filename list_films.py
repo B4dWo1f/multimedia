@@ -27,6 +27,7 @@ def check_names(files):
 if __name__ == '__main__':
 
    path = '/mnt/ARCADIA/Videos/peliculas'
+   films = 'peliculas.txt'
    ignored = ['srt','nfo']
 
    onlyfiles = [ join(path,f) for f in listdir(path) if isfile(join(path,f)) ]
@@ -35,3 +36,8 @@ if __name__ == '__main__':
    for f in onlyfiles:
       ext = f.split('.')[-1]
       if ext not in ignored: files.append(f)
+
+   with open(films,'w') as f:
+      for fi in files:
+         f.write(fi+'\n')
+
